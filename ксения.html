@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ксения & Никита — Приглашение</title>
+  <style>
+    @font-face {
+      font-family: 'Ayres Royal';
+      src: url('ayres-royal-pdf.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Florisel Script';
+      src: url('Floriselscript.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Felidae';
+      src: url('Felidae.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    body {
+      background: #fff;
+      margin: 0;
+      padding: 0;
+      font-family: serif;
+      color: #181818;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .main {
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 0;
+      box-sizing: border-box;
+    }
+    .main-names {
+      font-family: 'Florisel Script', serif;
+      font-size: 7em;
+      font-weight: normal;
+      letter-spacing: 0.02em;
+      margin-bottom: 32px;
+      margin-top: 48px;
+      text-align: center;
+      line-height: 1;
+      text-transform: none;
+    }
+    .photos-row {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 32px;
+      width: 100%;
+      max-width: 1800px;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+    .photo {
+      background: #eee;
+      border-radius: 0;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+    .photo.side {
+      width: 480px;
+      height: 640px;
+    }
+    .photo.center {
+      width: 600px;
+      height: 800px;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.08);
+      z-index: 2;
+    }
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    @media (max-width: 1600px) {
+      .photo.side {
+        width: 400px;
+        height: 533px;
+      }
+      .photo.center {
+        width: 500px;
+        height: 667px;
+      }
+      .photos-row {
+        gap: 16px;
+      }
+      .main-names { font-size: 6.2em; }
+    }
+    @media (max-width: 1366px) {
+      .photo.side {
+        width: 340px;
+        height: 453px;
+      }
+      .photo.center {
+        width: 420px;
+        height: 560px;
+      }
+      .photos-row {
+        gap: 12px;
+      }
+      .main-names { font-size: 5.4em; }
+    }
+    @media (max-width: 1100px) {
+      .photos-row { gap: 12px; }
+      .photo.side { 
+        width: 30vw; 
+        height: 40vw;
+        min-width: 260px;
+        min-height: 347px;
+      }
+      .photo.center {
+        width: 36vw;
+        height: 48vw;
+        min-width: 320px;
+        min-height: 427px;
+      }
+      .main-names { font-size: 4.8em; }
+    }
+    @media (max-width: 900px) {
+      .location {
+        flex-direction: column;
+        gap: 24px;
+        margin-top: 60px;
+      }
+      .location-content,
+      .location-image {
+        width: 100%;
+        max-width: 600px;
+      }
+      .location-title {
+        font-size: 3em;
+        margin-bottom: 24px;
+      }
+      .location-wait {
+        font-size: 1.3em;
+      }
+      .location-address {
+        font-size: 1.2em;
+        margin-bottom: 24px;
+      }
+      .gift-message {
+        font-size: 1.1em;
+        padding: 0 10px;
+      }
+      .location-image {
+        min-height: 180px;
+        margin-top: 16px;
+      }
+      .location-map-embed {
+        max-width: 100%;
+        height: 200px;
+        border-radius: 14px;
+      }
+      .location-maps {
+        margin-top: 24px;
+      }
+      .location-map-links {
+        gap: 10px;
+      }
+      .dress-code-block {
+        padding: 18px 2vw 24px 2vw;
+        border-radius: 12px;
+        gap: 18px;
+        margin: 40px 0 0 0;
+        max-width: 100vw;
+      }
+      .dress-code-title {
+        font-size: 1.1em;
+        margin-bottom: 8px;
+      }
+      .dress-code-label {
+        font-size: 0.95em;
+        margin-bottom: 10px;
+      }
+      .color-sample {
+        width: 32px;
+        height: 32px;
+      }
+      .dress-code-palette {
+        gap: 8px;
+      }
+    }
+    @media (max-width: 700px) {
+      .main-names { font-size: 3.6em; }
+      .photos-row { gap: 8px; }
+      .photo.side {
+        width: 28vw;
+        height: 37vw;
+        min-width: unset;
+        min-height: unset;
+      }
+      .photo.center {
+        width: 35vw;
+        height: 47vw;
+        min-width: unset;
+        min-height: unset;
+      }
+    }
+    @media (max-width: 500px) {
+      .main {
+        padding: 8px 0;
+      }
+      .main-names {
+        font-size: 2em;
+        margin-bottom: 8px;
+        margin-top: 12px;
+      }
+      .photos-row {
+        gap: 2px;
+        padding: 0 2px;
+      }
+      .photo.side, .photo.center {
+        width: 100vw;
+        height: auto;
+        min-width: unset;
+        min-height: unset;
+        max-width: 100vw;
+        max-height: 60vw;
+      }
+      .invite-message {
+        margin-top: 12px;
+      }
+      .invite-title {
+        font-size: 1.1em;
+        margin-bottom: 8px;
+      }
+      .invite-text {
+        font-size: 1em;
+      }
+      .save-the-date {
+        margin-top: 20px;
+        padding: 0 2vw;
+        min-height: unset;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .save-the-date-image, .save-the-date-content {
+        width: 100%;
+        min-width: unset;
+        min-height: unset;
+        max-width: 100vw;
+      }
+      .save-text {
+        font-size: 1.2em;
+        margin-bottom: 8px;
+        margin-top: 8px;
+      }
+      .date-big {
+        font-size: 1.1em;
+        margin: 8px 0 6px 0;
+      }
+      .location {
+        margin-top: 20px;
+        padding: 0 2vw;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .location-content, .location-image {
+        width: 100%;
+        max-width: 100vw;
+        padding: 0;
+      }
+      .location-title {
+        font-size: 1.2em;
+        margin-bottom: 8px;
+      }
+      .location-wait {
+        font-size: 1em;
+      }
+      .location-address {
+        font-size: 0.95em;
+        margin-bottom: 10px;
+      }
+      .gift-message {
+        font-size: 0.95em;
+        padding: 0 2vw;
+      }
+      .location-image {
+        min-height: 100px;
+        margin-top: 8px;
+      }
+      .location-map-embed {
+        height: 120px;
+        border-radius: 8px;
+      }
+      .location-maps {
+        margin-top: 10px;
+      }
+      .location-map-links {
+        gap: 6px;
+      }
+      .dress-code-block {
+        padding: 8px 1vw 12px 1vw;
+        border-radius: 8px;
+        gap: 10px;
+        margin: 24px 0 0 0;
+      }
+      .dress-code-title {
+        font-size: 0.95em;
+        margin-bottom: 4px;
+      }
+      .dress-code-label {
+        font-size: 0.8em;
+        margin-bottom: 6px;
+      }
+      .color-sample {
+        width: 22px;
+        height: 22px;
+      }
+      .dress-code-palette {
+        gap: 4px;
+      }
+    }
+    .invite-message {
+      margin-top: 64px;
+      text-align: center;
+    }
+    .invite-title {
+      font-family: 'Felidae', serif;
+      font-size: 4em;
+      font-weight: normal;
+      margin-bottom: 48px;
+      margin-top: 0;
+      letter-spacing: 0.01em;
+    }
+    .invite-text {
+      font-family: 'Felidae', serif;
+      font-size: 2.8em;
+      font-weight: normal;
+      line-height: 1.3;
+      margin: 0 auto;
+      max-width: 900px;
+      letter-spacing: 0.01em;
+    }
+    @media (max-width: 700px) {
+      .invite-message { margin-top: 32px; }
+      .invite-title { font-size: 2em; margin-bottom: 18px; }
+      .invite-text { font-size: 1.4em; }
+    }
+    .save-the-date {
+      margin-top: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      width: 100%;
+      max-width: 1800px;
+      padding: 0 40px;
+      box-sizing: border-box;
+      min-height: 520px;
+    }
+    .save-the-date-image {
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+      margin-left: 0;
+    }
+    .save-the-date-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .save-the-date-content {
+      width: 45%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .save-text {
+      font-family: 'Felidae', serif;
+      font-size: 6em;
+      font-weight: bold;
+      line-height: 1.1;
+      margin: 0;
+      letter-spacing: 0.02em;
+      margin-bottom: 32px;
+      margin-top: 40px;
+    }
+    .date-big {
+      font-family: 'Felidae', serif;
+      font-size: 4.5em;
+      margin: 32px 0 24px 0;
+      letter-spacing: 0.02em;
+    }
+    .date-description {
+      font-family: 'Felidae', serif;
+      font-size: 3.6em;
+      margin: 0;
+      letter-spacing: 0.01em;
+    }
+    .countdown {
+      margin-top: 48px;
+      text-align: center;
+      font-family: 'Felidae', serif;
+    }
+    .countdown-inline {
+      margin-top: 48px;
+      text-align: left;
+      display: block;
+    }
+    .countdown-numbers {
+      display: flex;
+      justify-content: flex-start;
+      gap: 48px;
+      margin-top: 32px;
+    }
+    .countdown-item {
+      text-align: center;
+    }
+    .countdown-value {
+      font-size: 5em;
+      font-weight: bold;
+      margin: 0 0 8px 0;
+      letter-spacing: 0.01em;
+    }
+    .countdown-label {
+      font-size: 2em;
+      margin-top: 8px;
+      font-family: 'Felidae', serif;
+    }
+    @media (max-width: 1100px) {
+      .save-the-date {
+        flex-direction: column;
+        gap: 32px;
+        min-height: unset;
+      }
+      .save-the-date-image {
+        width: 100%;
+        max-width: 600px;
+        height: 300px;
+      }
+      .save-the-date-content {
+        text-align: center;
+        margin-left: 0;
+      }
+      .save-text {
+        font-size: 4em;
+      }
+      .date-big {
+        font-size: 3em;
+      }
+      .date-description {
+        font-size: 2em;
+      }
+      .countdown-numbers {
+        gap: 24px;
+      }
+      .countdown-value {
+        font-size: 2.8em;
+      }
+      .countdown-label {
+        font-size: 1.2em;
+      }
+    }
+    @media (max-width: 700px) {
+      .save-the-date {
+        margin-top: 48px;
+      }
+      .save-text {
+        font-size: 2.2em;
+      }
+      .date-big {
+        font-size: 1.6em;
+        margin: 16px 0;
+      }
+      .date-description {
+        font-size: 1.2em;
+      }
+      .countdown-value {
+        font-size: 2.4em;
+      }
+      .countdown-label {
+        font-size: 1em;
+      }
+    }
+    @media (max-width: 500px) {
+      .save-the-date-image {
+        height: 200px;
+      }
+      .save-text {
+        font-size: 1.4em;
+      }
+      .date-big {
+        font-size: 1em;
+      }
+      .date-description {
+        font-size: 1em;
+      }
+    }
+    .calendar-block {
+      margin-top: 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: 'Felidae', serif;
+    }
+    .calendar {
+      background: #fff;
+      border: 2px solid #222;
+      border-radius: 24px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      padding: 32px 40px 24px 40px;
+      display: inline-block;
+      margin-bottom: 18px;
+    }
+    .calendar-month {
+      font-size: 2.2em;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 12px;
+      letter-spacing: 0.08em;
+    }
+    .calendar-table {
+      border-collapse: collapse;
+      margin: 0 auto;
+    }
+    .calendar-table td, .calendar-table th {
+      width: 48px;
+      height: 48px;
+      text-align: center;
+      font-size: 2em;
+      font-weight: normal;
+      position: relative;
+    }
+    .calendar-table th {
+      font-size: 1.2em;
+      color: #888;
+      font-weight: 400;
+    }
+    .calendar-heart {
+      color: #e63946;
+      font-size: 1.2em;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -60%);
+      pointer-events: none;
+      animation: pulse 1.2s infinite;
+      opacity: 0.4;
+    }
+    @keyframes pulse {
+      0% { transform: translate(-50%, -60%) scale(1); }
+      50% { transform: translate(-50%, -60%) scale(1.25); }
+      100% { transform: translate(-50%, -60%) scale(1); }
+    }
+    .calendar-table .wedding-day {
+      font-weight: bold;
+      color: #e63946;
+      background: #fff0f3;
+      border-radius: 50%;
+      position: relative;
+    }
+    .calendar-label {
+      font-size: 1.5em;
+      color: #222;
+      margin-top: 0;
+      margin-bottom: 0;
+      text-align: center;
+    }
+    .countdown-centered {
+      margin-top: 64px;
+      text-align: center;
+      display: block;
+    }
+    .invite-final-message {
+      margin-top: 80px;
+      margin-bottom: 80px;
+      text-align: center;
+      font-family: 'Felidae', serif;
+      font-size: 3.6em;
+      font-weight: normal;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+    }
+    @media (max-width: 700px) {
+      .invite-final-message {
+        font-size: 2em;
+        margin-top: 40px;
+        margin-bottom: 40px;
+      }
+    }
+    .location {
+      margin-top: 80px;
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      gap: 32px;
+      width: 100%;
+      max-width: 1800px;
+      padding: 0 40px;
+      box-sizing: border-box;
+    }
+    .location-content {
+      width: 45%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+    }
+    .location-title {
+      font-family: 'Felidae', serif;
+      font-size: 5.5em;
+      font-weight: bold;
+      line-height: 1.1;
+      margin: 0;
+      letter-spacing: 0.02em;
+      margin-bottom: 48px;
+      text-align: center;
+      width: 100%;
+    }
+    .location-wait {
+      font-family: 'Felidae', serif;
+      font-size: 2.8em;
+      margin: 0 0 24px 0;
+      letter-spacing: 0.01em;
+    }
+    .location-address {
+      font-family: 'Felidae', serif;
+      font-size: 2.6em;
+      margin: 0 0 64px 0;
+      letter-spacing: 0.01em;
+      line-height: 1.4;
+    }
+    .gift-message {
+      font-family: 'Felidae', serif;
+      font-size: 2.2em;
+      line-height: 1.5;
+      margin: 0;
+      max-width: 800px;
+      letter-spacing: 0.01em;
+      color: #333;
+    }
+    .location-image {
+      width: 50%;
+      height: auto;
+      min-height: 600px;
+      overflow: hidden;
+    }
+    .location-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    @media (max-width: 1200px) {
+      .location-title {
+        font-size: 4.8em;
+      }
+      .location-wait {
+        font-size: 2.4em;
+      }
+      .location-address {
+        font-size: 2.2em;
+      }
+      .gift-message {
+        font-size: 2em;
+      }
+    }
+    @media (max-width: 900px) {
+      .location {
+        flex-direction: column;
+        gap: 24px;
+        margin-top: 60px;
+      }
+      .location-content,
+      .location-image {
+        width: 100%;
+        max-width: 600px;
+      }
+      .location-title {
+        font-size: 4em;
+        margin-bottom: 32px;
+      }
+      .location-wait {
+        font-size: 2.2em;
+      }
+      .location-address {
+        font-size: 2em;
+        margin-bottom: 48px;
+      }
+      .gift-message {
+        font-size: 1.8em;
+        padding: 0 20px;
+      }
+      .location-image {
+        min-height: 400px;
+      }
+      .location-map-embed {
+        max-width: 100%;
+        height: 300px;
+      }
+    }
+    @media (max-width: 500px) {
+      .location {
+        margin-top: 40px;
+        padding: 0 20px;
+      }
+      .location-title {
+        font-size: 3.2em;
+        margin-bottom: 24px;
+      }
+      .location-wait {
+        font-size: 1.8em;
+      }
+      .location-address {
+        font-size: 1.6em;
+        margin-bottom: 32px;
+      }
+      .gift-message {
+        font-size: 1.6em;
+        padding: 0 10px;
+      }
+      .location-image {
+        min-height: 300px;
+      }
+      .location-map-embed {
+        height: 180px;
+      }
+    }
+    .dress-code-block {
+      margin: 100px auto 0 auto;
+      max-width: 900px;
+      padding: 48px 24px 64px 24px;
+      background: #faf9f7;
+      border-radius: 32px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+    .dress-code-title {
+      font-family: 'Felidae', serif;
+      font-size: 2.6em;
+      text-align: center;
+      margin-bottom: 12px;
+      color: #222;
+    }
+    .dress-code-section {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .dress-code-label {
+      font-family: 'Felidae', serif;
+      font-size: 1.5em;
+      margin-bottom: 16px;
+      color: #444;
+      text-align: center;
+    }
+    .dress-code-palette {
+      display: flex;
+      gap: 18px;
+      margin-bottom: 8px;
+    }
+    .color-sample {
+      display: inline-block;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 2px solid #e0e0e0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    @media (max-width: 700px) {
+      .dress-code-block {
+        padding: 24px 6px 32px 6px;
+        border-radius: 18px;
+        gap: 24px;
+      }
+      .dress-code-title { font-size: 1.4em; }
+      .dress-code-label { font-size: 1em; }
+      .color-sample { width: 44px; height: 44px; }
+    }
+    .location-maps {
+      margin-top: 48px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .location-map-embed {
+      width: 100%;
+      max-width: 700px;
+      height: 440px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      margin-bottom: 8px;
+      border: none;
+    }
+    .location-map-links {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      margin-top: 0;
+    }
+    .location-map-link {
+      font-family: 'Felidae', serif;
+      font-size: 1.1em;
+      color: #4a647a;
+      text-decoration: underline;
+      background: none;
+      border: none;
+      padding: 0;
+      transition: color 0.2s;
+      border-radius: 0;
+      box-shadow: none;
+      display: inline;
+    }
+    .location-map-link:hover {
+      color: #222;
+      background: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <div class="main-names">Никита &amp; Ксения</div>
+    <div class="photos-row">
+      <div class="photo side"><img src="никита.jpg" alt="Никита"></div>
+      <div class="photo center"><img src="d5fa33d9-6db7-4e93-bacc-8680ffea1c35.jpg" alt="Фото 2"></div>
+      <div class="photo side"><img src="ксюша.jpg" alt="Ксюша"></div>
+    </div>
+    <div class="invite-message">
+      <div class="invite-title">Дорогие друзья и родные</div>
+      <div class="invite-text">В нашей жизни скоро состоится важное событие - наша свадьба</div>
+    </div>
+    <div class="save-the-date">
+      <div class="save-the-date-image">
+        <img src="оба.jpg" alt="Вместе">
+      </div>
+      <div class="save-the-date-content">
+        <div class="save-text">SAVE<br>THE<br>DATE</div>
+        <div class="date-big">16.08.2025</div>
+        <div class="date-description">день, когда мы станем семьей</div>
+        <div class="calendar-block">
+          <div class="calendar">
+            <div class="calendar-month">Август 2025</div>
+            <table class="calendar-table">
+              <tr>
+                <th>Пн</th><th>Вт</th><th>Ср</th><th>Чт</th><th>Пт</th><th>Сб</th><th>Вс</th>
+              </tr>
+              <tr>
+                <td></td><td></td><td></td><td></td><td>1</td><td>2</td><td>3</td>
+              </tr>
+              <tr>
+                <td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+              </tr>
+              <tr>
+                <td>11</td><td>12</td><td>13</td><td>14</td><td>15</td>
+                <td class="wedding-day">16
+                  <span class="calendar-heart">❤</span>
+                </td>
+                <td>17</td>
+              </tr>
+              <tr>
+                <td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td>
+              </tr>
+              <tr>
+                <td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td>
+              </tr>
+            </table>
+          </div>
+          <div class="calendar-label">Отметьте этот день в календаре!</div>
+        </div>
+      </div>
+    </div>
+    <div class="countdown countdown-centered">
+      <div class="countdown-numbers">
+        <div class="countdown-item">
+          <div class="countdown-value" id="days">000</div>
+          <div class="countdown-label">дней</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-value" id="hours">00</div>
+          <div class="countdown-label">часов</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-value" id="minutes">00</div>
+          <div class="countdown-label">минут</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-value" id="seconds">00</div>
+          <div class="countdown-label">секунд</div>
+        </div>
+      </div>
+    </div>
+    <div class="invite-final-message">Мы приглашаем вас разделить с нами<br>этот особенный день!</div>
+    <div class="location">
+      <div class="location-content">
+        <div class="location-title">LOCATION</div>
+        <div class="location-wait">Будем ждать вас по адресу:</div>
+        <div class="location-address">Кадинский сельсовет 50к12</div>
+        <div class="gift-message">Цветы очаровательны, но, к сожалению, недолговечны, приятным комплиментом для нас вместо цветов будет бутылочка вашего любимого алкогольного напитка, который мы откроем на ближайшем совместном празднике.</div>
+        <div class="location-maps">
+          <iframe class="location-map-embed" src="https://yandex.ru/map-widget/v1/?text=Кадинский%20сельсовет%2C%2050к12" frameborder="0" allowfullscreen></iframe>
+          <div class="location-map-links">
+            <a class="location-map-link" href="https://yandex.ru/maps/?text=Кадинский%20сельсовет%2C50к12" target="_blank">Открыть в Яндекс.Картах</a>
+            <a class="location-map-link" href="https://www.google.com/maps/search/?api=1&query=Кадинский+сельсовет%2C+50к12" target="_blank">Открыть в Google Maps</a>
+          </div>
+        </div>
+      </div>
+      <div class="location-image">
+        <img src="место.avif" alt="место проведения" loading="lazy">
+      </div>
+    </div>
+    <div class="dress-code-block">
+      <div class="dress-code-title">Мы будем рады если вы поддержите цветовую гамму нашего вечера</div>
+      <div class="dress-code-section">
+        <div class="dress-code-label">Для мужчин: тёмно-серые, коричневые, бежевые, синие, неяркие оттенки</div>
+        <div class="dress-code-palette">
+          <span class="color-sample" style="background:#444"></span>
+          <span class="color-sample" style="background:#7a5c3e"></span>
+          <span class="color-sample" style="background:#d2b48c"></span>
+          <span class="color-sample" style="background:#4a647a"></span>
+          <span class="color-sample" style="background:#888"></span>
+          <span class="color-sample" style="background:#22334a"></span>
+          <span class="color-sample" style="background:#8a8773"></span>
+          <span class="color-sample" style="background:#e0e0e0"></span>
+        </div>
+      </div>
+      <div class="dress-code-section">
+        <div class="dress-code-label">Для женщин: розовые и светлые оттенки</div>
+        <div class="dress-code-palette">
+          <span class="color-sample" style="background:#f8c6d8"></span>
+          <span class="color-sample" style="background:#fbeee6"></span>
+          <span class="color-sample" style="background:#f7e1e8"></span>
+          <span class="color-sample" style="background:#eec6f8"></span>
+          <span class="color-sample" style="background:#fff0f5"></span>
+          <span class="color-sample" style="background:#ffe5b4"></span>
+          <span class="color-sample" style="background:#e6e6fa"></span>
+          <span class="color-sample" style="background:#fff9c4"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function updateCountdown() {
+      const weddingDate = new Date('2025-08-16T00:00:00');
+      const now = new Date();
+      const diff = weddingDate - now;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
